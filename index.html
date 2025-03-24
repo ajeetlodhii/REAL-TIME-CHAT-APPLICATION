@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real-Time Chat App</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+    <nav id="navbar">
+        <h1>Chat Application</h1>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="setting.html">Settings</a></li>
+            <li><a href="profile.html">Profile</a></li>
+            <li><button id="logout-btn">Logout</button></li>
+        </ul>
+    </nav>
+    
+    <div id="chat-container">
+        <div id="chat-header">
+            <h2>Chat Room</h2>
+            <button id="clear-chat">Clear Chat</button>
+            <button id="theme-toggle">Dark Mode</button>
+            <button id="search-messages">🔍 Search</button>
+            <button id="notifications-toggle">🔔 Notifications</button>
+        </div>
+        <div id="chat-messages">
+            <!-- Messages will be dynamically loaded here -->
+        </div>
+        <div id="chat-input">
+            <input type="text" id="message-input" placeholder="Type a message...">
+            <button id="send-btn">Send</button>
+            <button id="attach-file">📎</button>
+            <button id="emoji-picker">😊</button>
+            <button id="voice-message">🎤</button>
+            <button id="video-call">📹 Video Call</button>
+            <button id="group-chat">👥 Group Chat</button>
+        </div>
+    </div>
+
+    <div id="user-list">
+        <h3>Active Users</h3>
+        <ul id="users">
+            <!-- Active users will be dynamically listed here -->
+        </ul>
+    </div>
+    
+    <div id="chat-extras">
+        <h3>Chat Options</h3>
+        <button id="block-user">🚫 Block User</button>
+        <button id="delete-chat">🗑 Delete Chat</button>
+        <button id="report-user">⚠ Report User</button>
+    </div>
+    
+    <footer>
+        <p>&copy; 2025 Chat App. All rights reserved.</p>
+    </footer>
+    <script src="script.js"></script>
+    <script src="scriptt.js"></script>
+    
+</body>
+</html>

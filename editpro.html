@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Profile - Chat App</title>
+    <link rel="stylesheet" href="editpro.css">
+</head>
+<body>
+
+    <nav id="navbar">
+        <h1>Chat Application</h1>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="setting.html">Settings</a></li>
+            <li><a href="profile.html">Profile</a></li>
+            <li><button id="logout-btn">Logout</button></li>
+        </ul>
+    </nav>
+
+    <div id="edit-profile-container">
+        <h2>Edit Profile</h2>
+        <form id="edit-profile-form">
+            <label for="profile-pic">Profile Picture</label>
+            <input type="file" id="profile-pic" accept="image/*">
+
+            <label for="user-name">Full Name</label>
+            <input type="text" id="user-name" placeholder="Enter your full name" required>
+
+            <label for="username">Username</label>
+            <input type="text" id="username" placeholder="Enter username" required>
+
+            <label for="bio">Bio</label>
+            <textarea id="bio" placeholder="Write something about yourself..."></textarea>
+
+            <label for="location">Location</label>
+            <input type="text" id="location" placeholder="Enter your location">
+
+            <label for="hobbies">Hobbies</label>
+            <input type="text" id="hobbies" placeholder="E.g., Traveling, Gaming, Photography">
+
+            <label for="fav-quote">Add Quote</label>
+            <input type="text" id="fav-quote" placeholder="Enter your favorite quote">
+
+            <button type="submit">Save Changes</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById("edit-profile-form").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            // Get values from input fields
+            let profileData = {
+                name: document.getElementById("user-name").value,
+                username: document.getElementById("username").value,
+                bio: document.getElementById("bio").value,
+                location: document.getElementById("location").value,
+                hobbies: document.getElementById("hobbies").value,
+                favQuote: document.getElementById("fav-quote").value,
+            };
+
+            // If user uploaded a new profile picture
+            let profilePic = document.getElementById("profile-pic").files[0];
+            if (profilePic) {
+                let reader = new FileReader();
+                reader.onload = function(e) {
+                    profileData.profilePic = e.target.result; // Save image as Base64
+                    localStorage.setItem("profileData", JSON.stringify(profileData));
+                    alert("Profile updated successfully!");
+                    window.location.href = "profile.html"; // Redirect to profile page
+                };
+                reader.readAsDataURL(profilePic);
+            } else {
+                // Save data without new profile picture
+                localStorage.setItem("profileData", JSON.stringify(profileData));
+                alert("Profile updated successfully!");
+                window.location.href = "profile.html"; // Redirect to profile page
+            }
+        });
+    </script>
+
+</body>
+</html>

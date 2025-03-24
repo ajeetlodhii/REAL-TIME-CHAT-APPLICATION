@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Account - Chat App</title>
+    <link rel="stylesheet" href="deleteacc.css">
+</head>
+<body>
+
+    <nav id="navbar">
+        <h1>Chat Application</h1>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="setting.html">Settings</a></li>
+            <li><a href="profile.html">Profile</a></li>
+            <li><button id="logout-btn">Logout</button></li>
+        </ul>
+    </nav>
+
+    <div id="delete-account-container">
+        <h2>Delete Account</h2>
+        <p>⚠ Are you sure you want to delete your account? This action is irreversible.</p>
+        <label for="confirm-delete">Type "<strong>DELETE</strong>" to confirm:</label>
+        <input type="text" id="confirm-delete" placeholder="Type DELETE to confirm">
+        <button id="delete-account-btn" class="danger">Delete My Account</button>
+    </div>
+
+    <script>
+        document.getElementById("delete-account-btn").addEventListener("click", function() {
+            const confirmation = document.getElementById("confirm-delete").value;
+            
+            if (confirmation !== "DELETE") {
+                alert("Please type 'DELETE' to confirm account deletion.");
+                return;
+            }
+
+            // Simulate account deletion (Replace with real backend call)
+            alert("Your account has been deleted.");
+            window.location.href = "index.html"; // Redirect to homepage after deletion
+        });
+    </script>
+
+</body>
+</html>

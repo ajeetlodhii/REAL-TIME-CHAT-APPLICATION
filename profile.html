@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile - Chat App</title>
+    <link rel="stylesheet" href="profile.css">
+</head>
+<body>
+
+    <nav id="navbar">
+        <h1>Chat Application</h1>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="setting.html">Settings</a></li>
+            <li><a href="profile.html">Profile</a></li>
+            <li><button id="logout-btn">Logout</button></li>
+        </ul>
+    </nav>
+
+    <div id="profile-container">
+        <div class="profile-header">
+            <img src="default-avatar.jpg" alt="User Avatar" id="user-avatar">
+            <h2 id="user-name">John Doe</h2>
+            <div id="user-bio">
+                <h3>About Me</h3>
+                <p id="bio-text">🔥 Tech Enthusiast | Digital Creator | Music Lover 🎶</p>
+            </div>
+            <button id="edit-profile" onclick="location.href='editpro.html'">Edit Profile</button>
+        </div>
+
+        <div class="profile-details">
+            <h3>Profile Details</h3>
+            <p><strong>Username:</strong> <span id="username">@john_doe</span></p>
+            <p><strong>Location:</strong> <span id="location">New York, USA</span></p>
+            <p><strong>Hobbies:</strong> <span id="hobbies">Traveling, Gaming, Photography 📸</span></p>
+            <p><strong>Quote</strong> <span id="fav-quote">"Live life, no regrets." ✨</span></p>
+        </div>
+    </div>
+
+    <script>
+        // Load profile data from local storage
+        let storedData = localStorage.getItem("profileData");
+        if (storedData) {
+            let profileData = JSON.parse(storedData);
+
+            document.getElementById("user-name").innerText = profileData.name || "John Doe";
+            document.getElementById("username").innerText = profileData.username || "@john_doe";
+            document.getElementById("bio-text").innerText = profileData.bio || "No bio yet.";
+            document.getElementById("location").innerText = profileData.location || "Unknown";
+            document.getElementById("hobbies").innerText = profileData.hobbies || "No hobbies added.";
+            document.getElementById("fav-quote").innerText = profileData.favQuote || "No favorite quote yet.";
+
+            // Load profile picture if available
+            if (profileData.profilePic) {
+                document.getElementById("user-avatar").src = profileData.profilePic;
+            }
+        }
+    </script>
+
+</body>
+</html>
