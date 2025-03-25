@@ -19,3 +19,6 @@ I developed a real-time chat application with a sleek and intuitive UI, ensuring
 ✅ User Profiles & Settings – Personalized experience with profile management
 ✅ Change Password & Account Controls – Enhanced security and user control
 ✅ Dynamic Animations & Effects – A visually appealing and interactive interface
+
+OUTPUT:-
+![Image](https://github.com/user-attachments/assets/e601654c-a8e8-48c1-8384-c10d254869b7)
